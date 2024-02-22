@@ -1,14 +1,14 @@
 nav {
-  background-color: var (--color3);
-  border-bottom: 1px solid #529de8;
+  background-color: var(--color1);
+  border-bottom: 1px solid var(--color0);
   padding: 0.5rem 1rem;
 
 }
 .navButton {
-  background-color: #54937e;
-  border: 3px solid #d2f0e6;
-  color: rgb(10, 10, 10);
+  background-color: var(--color2);
+  border: 3px solid var(--color7);
   padding: 0.5rem 1rem;
+  color: var(--color7);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -17,9 +17,9 @@ nav {
   cursor: pointer;
 }
 .navButton:hover {
-  background-color: #1af4ab;
+  background-color: var(--color3);
   color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px var(--color6);
 }
 ul {
   list-style-type: none;

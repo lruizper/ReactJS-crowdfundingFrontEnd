@@ -1,0 +1,38 @@
+.projPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.projDescript{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color6);
+    align-items: center;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px 0 var(--color0);
+}
+.projInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.projDescript img{
+    padding: 10px;
+    /* width: 100%; */
+    height: 300px;
+    object-fit: cover;
+}
+
+.projInfo p{
+    text-align: justify ;
+    tex
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: var(--color0);
+}

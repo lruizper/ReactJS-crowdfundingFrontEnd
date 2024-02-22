@@ -21,13 +21,14 @@ html {
   
   /* style guide */
   :root {
-    --color0: black ;
-    --color1: #F2FF49;
-    --color2: #9B1D2C;
-    --color3: #B6BDB3;
-    --color4: #425837;
+    --color0: #23272E;
+    --color1: #40CECD;
+    --color2: #305A6B;
+    --color3: #0A263B;
+    --color4: #ee7564;
     --color5: #3B2951;
     --color6: #7a7a91;
+    --color7: #F5F7EF;
     /*  inherited colors  */
     --text: var(--color0);
   }
@@ -36,12 +37,14 @@ html {
   html, body {
     font-family: "Montserrat", sans-serif;
     font-size:18px;
+    background-color: var(--color7);
   }
   
   /* heading styles */
   h1 {
     font-family: 'Montserrat', serif;
     font-size:30px;
+    color: var(--color7);
     font-weight: 600;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -55,10 +58,11 @@ html {
     font-family: 'Montserrat', serif;
     font-size:26px;
     font-weight: 500;
+    color: var(--color7);
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 10px;
-    background-color: #9B1D2C;
+    background-color: var(--color2);
     border-color: var(--color0);
     border-width: 3px;
     border-radius: 7px;
@@ -67,10 +71,10 @@ html {
     font-family: 'Montserrat', sans-serif;
     font-size:25px;
     font-weight: 200;
+    color: var(--color7);
     margin: 15px;
     padding: 5px;
     background-color: var(--color4);
-    color: white;
     border-color: var(--color0);
     border-width: 3px;
     border-radius: 4px;
