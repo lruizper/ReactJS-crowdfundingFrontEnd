@@ -1,0 +1,12 @@
+.myForm {
+    background-color: var(--color4);
+    width: 100%;
+    /* max-width: 330px; */
+    padding: 15px;
+    margin: auto;
+}
+.myInput {
+    height: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+}
