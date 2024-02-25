@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import postSignup from "../api/post-signup";
+import postNewuser from "../api/post-newuser";
 
 function SigninForm() {
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ function SigninForm() {
             return;
         }
         if (credentials.username && credentials.password) {
-            postSignup(credentials.username, credentials.password)
+            postNewuser (credentials.username, credentials.password)
                 .then((response) => {
                     console.log(response);
                     navigate("/");
