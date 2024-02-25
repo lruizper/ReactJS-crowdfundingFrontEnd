@@ -19,6 +19,7 @@ function HomePage() {
     return (
         <>
         <h1>Projects</h1>
+        <button > Create a Project </button>
         <div id="project-list">
                         {projects.map((projectData, key) => {
                 return <ProjectCard key={key} projectData={projectData} />;

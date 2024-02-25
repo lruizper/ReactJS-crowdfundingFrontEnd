@@ -1,101 +1,123 @@
 /* reset default styles */
 html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-    margin: 0;
-    padding: auto;
-    font-weight: normal;
-  }
-  ol, ul {
-    list-style: none;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  
-  /* style guide */
-  :root {
-    --color0: #23272E;
-    --color1: #40CECD;
-    --color2: #305A6B;
-    --color3: #0A263B;
-    --color4: #ee7564;
-    --color5: #3B2951;
-    --color6: #7a7a91;
-    --color7: #F5F7EF;
-    /*  inherited colors  */
-    --text: var(--color0);
-  }
-  
-  /* font style */
-  html, body {
-    font-family: "Montserrat", sans-serif;
-    font-size:18px;
-    background-color: var(--color7);
-  }
-  
-  /* heading styles */
-  h1 {
-    font-family: 'Montserrat', serif;
-    font-size:30px;
-    color: var(--color7);
-    font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: var(--color1);
-    border-color: var(--color0);
-    border-width: 3px;
-    border-radius: 7px;
-  }
-  h2 {
-    font-family: 'Montserrat', serif;
-    font-size:26px;
-    font-weight: 500;
-    color: var(--color7);
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    background-color: var(--color2);
-    border-color: var(--color0);
-    border-width: 3px;
-    border-radius: 7px;
-  }
-  h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size:25px;
-    font-weight: 200;
-    color: var(--color7);
-    margin: 15px;
-    padding: 5px;
-    background-color: var(--color4);
-    border-color: var(--color0);
-    border-width: 3px;
-    border-radius: 4px;
-  }
-  h4 {
-    font-family: 'Montserrat Slab', sans-serif;
-    font-size:24px;
-    font-style: italic, bold;
-    padding: auto;
-  }
-  h5{
-    font-family: 'Montserrat Slab', sans-serif;
-    font-size:22px;
-    font-style: italic;
-    font-weight: 200;
-  }
-  h6{
-    font-family: 'Montserrat Slab', serif;
-    font-size:16px;
-    font-style: italic;
-    font-weight: 200;
-    margin: 5px;
-    padding: 5px;
-  }
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: auto;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* style guide */
+:root {
+  --color0: #23272E;
+  --color1: #40CECD;
+  --color2: #305A6B;
+  --color3: #0A263B;
+  --color4: #ee7564;
+  --color5: #3B2951;
+  --color6: #7a7a91;
+  --color7: #F5F7EF;
+  /*  inherited colors  */
+  --text: var(--color0);
+}
+
+/* font style */
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  background-color: var(--color7);
+}
+
+/* heading styles */
+h1 {
+  font-family: 'Montserrat', serif;
+  font-size: 30px;
+  color: var(--color7);
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--color1);
+  border-color: var(--color0);
+  border-width: 3px;
+  border-radius: 7px;
+}
+
+h2 {
+  font-family: 'Montserrat', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--color7);
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: var(--color2);
+  border-color: var(--color0);
+  border-width: 3px;
+  border-radius: 7px;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 200;
+  color: var(--color7);
+  margin: 15px;
+  padding: 5px;
+  background-color: var(--color4);
+  border-color: var(--color0);
+  border-width: 3px;
+  border-radius: 4px;
+}
+
+h4 {
+  font-family: 'Montserrat Slab', sans-serif;
+  font-size: 24px;
+  font-style: italic, bold;
+  padding: auto;
+}
+
+h5 {
+  font-family: 'Montserrat Slab', sans-serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 200;
+}
+
+h6 {
+  font-family: 'Montserrat Slab', serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 200;
+  margin: 5px;
+  padding: 5px;
+}

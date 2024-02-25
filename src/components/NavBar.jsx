@@ -12,6 +12,7 @@ function NavBar() {
                 <li><Link className="navButton" to="/contact">Contact</Link></li>
                 <li><Link className="navButton" to= "/login"> LogIn</Link></li>
                 <li><Link className="navButton" to= "/signin"> SignUp</Link></li>
+                <li><Link className="navButton" to= "/createproject"> Create Project</Link></li>
                 </ul>
             </nav>
             <Outlet />
