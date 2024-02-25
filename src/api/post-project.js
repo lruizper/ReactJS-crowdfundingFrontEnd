@@ -1,5 +1,5 @@
 async function postProject () {
-    const url = `${import.meta.env.VITE_API_URL}/projects`;
+    const url = `${import.meta.env.VITE_API_URL}/projects/`;
     const response = await fetch(url, { method: "POST" });
     if (!response.ok) {
         const fallbackError = `Error creating project with status: ${response.status}`;
