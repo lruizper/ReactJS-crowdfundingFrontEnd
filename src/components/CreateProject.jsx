@@ -49,7 +49,7 @@ function CreateProject() {
                 </div>
                 <div className="myInput">
                     <label htmlFor="description">Project description: </label>
-                    <input type="text" id="text" onChange={handleChange} placeholder="Describe your project" />
+                    <input type="text" id="description" onChange={handleChange} placeholder="Describe your project" />
                 </div>
                 <div className="myInput">
                     <label htmlFor="goal">Project goal: </label>
@@ -58,9 +58,7 @@ function CreateProject() {
                 <div className="myInput">
                     <label htmlFor="image">Project image: </label>
                     <input type="text" id="image" onChange={handleChange} placeholder="Image URL" />
-
                 </div>
-                <br />
                 <button type="submit" onClick={handleSubmit}>Submit New Project</button>
             </form>
         </div>
