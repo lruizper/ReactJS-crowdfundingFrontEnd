@@ -13,7 +13,6 @@ import NewProjPage from "./pages/NewProjPage.jsx";
 import App from "./components/App.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
 
-
 const router = createBrowserRouter(
   [{
     path: "/", element: <App />,
