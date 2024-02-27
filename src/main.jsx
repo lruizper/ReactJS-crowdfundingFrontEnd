@@ -10,12 +10,12 @@ import LoginPage from "./pages/LoginPage.jsx";
 import SigninPage from "./pages/SigninPage.jsx";
 import NewProjPage from "./pages/NewProjPage.jsx";
 
-import NavBar from "./components/NavBar.jsx";
+import App from "./components/App.jsx";
 
 
 const router = createBrowserRouter(
   [{
-    path: "/", element: <NavBar />,
+    path: "/", element: <App />,
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/project/:id", element: <ProjectPage /> },

@@ -25,10 +25,10 @@ function CreateProject() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // if (!newProj.title || !newProj.description || !newProj.goal) {
-        //     alert("One or more fields are empty! Please fill them out.");
-        //     return;
-        // }
+        if (newProj.title === "" || newProj.description === "" || newProj.goal === "") {
+            window.alert("Please fill in all fields");
+            return;
+        }
         try {
             await postProject(newProj);
             console.log(newProj);
