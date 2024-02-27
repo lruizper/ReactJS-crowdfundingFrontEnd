@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import postLogin from "../api/post-login";
 import { useAuth } from "../hooks/use-auth";
 
+import postLogin from "../api/post-login";
+import { useAuth } from "../hooks/use-auth";
+
 function LogInForm() {
     const navigate = useNavigate();
     const {auth, setAuth}=useAuth();
@@ -16,10 +19,10 @@ function LogInForm() {
             [id]: value,
         }));
     };
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         if (!credentials.username || !credentials.password) {
-            alert("Please enter both a username and password");
+            alert("Please enter both username and password");
             return;
         }
         if (credentials.username && credentials.password) {
