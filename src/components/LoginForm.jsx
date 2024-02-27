@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import postLogin from "../api/post-login";
-import { useAuthorization } from "../hooks/use-auth";
+import { useAuth } from "../hooks/use-auth";
 
 function LogInForm() {
     const navigate = useNavigate();
-    const {auth, setAuth} = useAuthorization()
+    const {auth, setAuth} = useAuth()
     const [credentials, setCredentials] = useState({ 
         username: "", 
         password: "" 
@@ -28,9 +28,10 @@ function LogInForm() {
         if (credentials.username && credentials.password) {
             postLogin(credentials.username, credentials.password)
                 .then((response) => {
-                    // console.log(response);
+                    console.log(response);
                     window.localStorage.setItem("token", response.token);
                     setAuth( {token: response.token,})
+                    console.log (token);
                     navigate("/");
                 })
                 .catch((error) => {

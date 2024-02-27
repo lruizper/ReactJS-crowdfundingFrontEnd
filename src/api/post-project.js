@@ -10,7 +10,7 @@ async function postProject(newProj) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Token ${token}`,
+            auth: `Token ${token}`,
         },
         body: JSON.stringify(newProj),
     });
