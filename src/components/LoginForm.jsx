@@ -1,22 +1,28 @@
 import "./LoginForm.css";
 import { useState } from "react";
-import postLogin from "../api/post-login";
 import { useNavigate } from "react-router-dom";
+
+import postLogin from "../api/post-login";
+import { useAuthorization } from "../hooks/use-auth";
 
 function LogInForm() {
     const navigate = useNavigate();
-    const [credentials, setCredentials] = useState({ username: "", password: "" });
-    const handleChange = (e) => {
-        const { id, value } = e.target;
+    const {auth, setAuth} = useAuthorization()
+    const [credentials, setCredentials] = useState({ 
+        username: "", 
+        password: "" 
+    });
+    const handleChange = (event) => {
+        const { id, value } = event.target;
         setCredentials((prevCredentials) => ({
             ...prevCredentials,
             [id]: value,
         }));
     };
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         if (!credentials.username || !credentials.password) {
-            alert("Please enter both a username and password");
+            alert("Please enter both username and password");
             return;
         }
         if (credentials.username && credentials.password) {
@@ -24,6 +30,7 @@ function LogInForm() {
                 .then((response) => {
                     // console.log(response);
                     window.localStorage.setItem("token", response.token);
+                    setAuth( {token: response.token,})
                     navigate("/");
                 })
                 .catch((error) => {
