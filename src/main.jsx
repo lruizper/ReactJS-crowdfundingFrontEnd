@@ -11,7 +11,7 @@ import SigninPage from "./pages/SigninPage.jsx";
 import NewProjPage from "./pages/NewProjPage.jsx";
 
 import App from "./components/App.jsx";
-
+import { AuthProvider } from "./components/AuthProvider.jsx";
 
 const router = createBrowserRouter(
   [{
@@ -19,16 +19,18 @@ const router = createBrowserRouter(
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/project/:id", element: <ProjectPage /> },
-      { path: "/about", element: <AboutPage />},
-      { path : "/contact", element: <ContactPage />},
-      { path: "/login", element: <LoginPage />},
-      { path: "/signin", element: <SigninPage />},
-      { path: "/createproject", element: <NewProjPage />},
-    ],},
+      { path: "/about", element: <AboutPage /> },
+      { path: "/contact", element: <ContactPage /> },
+      { path: "/login", element: <LoginPage /> },
+      { path: "/signin", element: <SigninPage /> },
+      { path: "/createproject", element: <NewProjPage /> },
+    ],
+  },
   ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* Here we wrap our app in the router provider so they render */}
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>);
