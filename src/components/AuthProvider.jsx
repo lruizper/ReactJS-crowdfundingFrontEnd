@@ -3,6 +3,7 @@ export const AuthContext = createContext();
 export const AuthProvider = (props) => {
     const [auth, setAuth] = useState({
         token: window.localStorage.getItem("token"),
+        user_id: Number(window.localStorage.getItem("user_id")),
     });
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
