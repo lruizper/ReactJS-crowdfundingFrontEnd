@@ -1,11 +1,15 @@
 import "./ProjectPage.css";
 import { useParams } from "react-router-dom";
-import useProject from "../hooks/use-project";
+import { useState, useContext } from "react";
 
+import useProject from "../hooks/use-project";
+import useUser from "../hooks/use-user";
 import { AuthContext } from "../components/AuthProvider";
 import CreatePledge from "../components/CreatePledge";
 
 function ProjectPage() {
+    const authContext = useContext(AuthContext);
+    const currentUserId = useUser(authContext.user_id);
     // define user_id from local storage?
     // define project_id from the current project page
     const { id } = useParams();
@@ -31,8 +35,14 @@ function ProjectPage() {
             </div>
             </div>
             <h3>Pledges:</h3>
-            <button>I'm ready to donate </button> {/* define state to true by default, then if true show the pledge form*/}
-            <CreatePledge />
+
+            { currentUserId ? 
+                <p>Please log in to make a pledge</p> 
+                : 
+                (<><AuthContext.Provider value={{ user_id: currentUserId }}>
+                    <CreatePledge/>
+                </AuthContext.Provider></>)
+                }
             <h3>Previous Supporters:</h3>
             {project.pledges.length === 0 ? <p>Be the first to contribute</p> : null}
             <ul> {project.pledges.map((pledge, key) => {

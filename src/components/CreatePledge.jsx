@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { useParams } from "react-router-dom";
-import useProject from "../hooks/use-project";
 import postPledge from "../api/post-pledge";
 
 function CreatePledge() {
     const navigate = useNavigate();
+    const authContext = useContext(AuthContext);
     const { id } = useParams();
     const [newPledge, setNewPledge] = useState(
         {
-            "supporter": AuthContext.user_id, // need grab this from local storage
-            "project": id, // need grab this from current project page
+            "supporter": authContext.user_id, // need grab this from local storage
+            "project": Number(id), // need grab this from current project page
             "ammount": "",
             "comment": "",
             "annonymous": "false",
         }
     );
-    console.log(newPledge)
+    
     const handleChange = (event) => {
         const { id, value } = event.target;
         setNewProj((prevPledge) => ({
@@ -28,10 +28,10 @@ function CreatePledge() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (project_id === "" ) {
-            window.alert("Internal error detecting project id");
+        if (project === "" ) {
+            window.alert("Internal error detecting project");
             return;}
-        if (user_id === "" ) {
+        if (supporter === "" ) {
             window.alert("Please log in to make a pledge");
             return;
         }
@@ -49,10 +49,10 @@ function CreatePledge() {
         }
         ;
     };
-
+    // console.log(newPledge)
     return (
         <div>
-            <form className="myForm">
+            <form onSubmit={handleSubmit} className="myForm">
                 <div className="myInput">
                     <label htmlFor="ammount">Ammount to donate: </label>
                     <input type="number" id="ammount" onChange={handleChange} />
@@ -61,7 +61,7 @@ function CreatePledge() {
                     <label htmlFor="comment">Your message: </label>
                     <input type="text" id="comment" onChange={handleChange} placeholder="Encourage the team" />
                 </div>
-                <button type="submit" onClick={handleSubmit}>Contribute</button>
+                <button type="submit" >Contribute</button>
             </form>
         </div>
     )

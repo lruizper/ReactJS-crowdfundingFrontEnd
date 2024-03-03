@@ -15,16 +15,16 @@ function CreateProject() {
         }
     );
 
-    const handleChange = (e) => {
-        const { id, value } = e.target;
+    const handleChange = (event) => {
+        const { id, value } = event.target;
         setNewProj((prevProject) => ({
             ...prevProject,
             [id]: value,
         }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         if (newProj.title === "" || newProj.description === "" || newProj.goal === "") {
             window.alert("Please fill in all fields");
             return;
