@@ -29,6 +29,10 @@ function CreateProject() {
             window.alert("Please fill in all fields");
             return;
         }
+        if (newProj.goal < 1000) {
+            window.alert("Project goal must be greater than 1000 AUD");
+            return;
+        }
         try {
             await postProject(newProj);
             console.log(newProj);
@@ -53,7 +57,7 @@ function CreateProject() {
                 </div>
                 <div className="myInput">
                     <label htmlFor="goal">Project goal: </label>
-                    <input type="number" id="goal" onChange={handleChange} placeholder="Your target" />
+                    <input type="number" id="goal" onChange={handleChange} placeholder="Your target" min="1000"/>
                 </div>
                 <div className="myInput">
                     <label htmlFor="image">Project image: </label>
