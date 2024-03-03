@@ -19,7 +19,7 @@ function NavBar() {
                     <li><Link className="navButton" to="/contact">Contact</Link></li>
                     {auth.token ?
                         (<>
-                            <li><Link className="navButton" to="/newproject" >Create Project</Link></li>
+                            <li><Link className="navButton" to="/createproject" >Create Project</Link></li>
                             <li><Link className="navButton" to="/" onClick={handleLogout}>Log Out</Link></li>
                         </>) :
                         (<>
