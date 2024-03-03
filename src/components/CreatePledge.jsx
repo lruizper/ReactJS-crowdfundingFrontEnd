@@ -20,21 +20,20 @@ function CreatePledge() {
     
     const handleChange = (event) => {
         const { id, value } = event.target;
-        setNewProj((prevPledge) => ({
+        setNewPledge((prevPledge) => ({
             ...prevPledge,
             [id]: value,
         }));
     };
 
     const handleSubmit = async (event) => {
+        const project = pledge.project;
+        const supporter = pledge.supporter;
         event.preventDefault();
-        if (project === "" ) {
-            window.alert("Internal error detecting project");
+        if (project === null || supporter === null) {
+            window.alert("Internal error detecting project or user, please try again later.");
             return;}
-        if (supporter === "" ) {
-            window.alert("Please log in to make a pledge");
-            return;
-        }
+        
         if (newPledge.ammount === "" || newPledge.comment === "" ) {
             window.alert("Please fill in all fields");
             return;
