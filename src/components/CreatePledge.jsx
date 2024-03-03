@@ -44,7 +44,7 @@ function CreatePledge() {
         try {
             await postPledge(newPledge);
             console.log(newPledge);
-            navigate("/"); //set to navigate to the same page which should refresh, showing the new pledge
+            window.location.reload();
         }
         catch (error) {
             window.alert(error.message);
@@ -62,7 +62,7 @@ function CreatePledge() {
                     <label htmlFor="comment">Your message: </label>
                     <input type="text" id="comment" onChange={handleChange} placeholder="Encourage the team" />
                 </div>
-                <button type="submit" >Contribute</button>
+                <button type="submit" className="navButton" >Contribute</button>
             </form>
         </div>
     )

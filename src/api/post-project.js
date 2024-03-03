@@ -1,5 +1,5 @@
 async function postProject(newProj) {
-    console.log(newProj);
+    // console.log(newProj);
     const url = `${import.meta.env.VITE_API_URL}/projects/`;
     const token = localStorage.getItem("token");
 

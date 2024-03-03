@@ -23,33 +23,40 @@ function ProjectPage() {
         </>)
     return (
         <div className="projPage" >
-            <h2>{project.title}</h2>
             <div className="projDescript">
                 <img src={project.image} />
                 <div className="projInfo">
+                    <h2>{project.title}</h2>
                     <p>Target: {project.goal}</p>
                     <p>Created: {new Date(project.date_created).toLocaleDateString()}</p>
                     <p>{project.description}</p>
                 </div>
             </div>
-            <h3>Pledges:</h3>
-
-            {currentUserId===null ?
-                <p>Please log in to make a pledge</p>
-                :
-                (<><AuthContext.Provider value={{ user_id: currentUserId }}>
-                    <CreatePledge />
-                </AuthContext.Provider></>)
-            }
-            <h3>Previous Supporters:</h3>
-            {project.pledges.length === 0 ? <p>Be the first to contribute</p> : null}
-            <ul> {project.pledges.map((pledge, key) => {
-                return (
-                    <li key={key}>{pledge.amount} from {pledge.supporter}
-                    </li>
-                );
-            })}
-            </ul>
+            <div className="projPledges">
+                <div>
+                    <h3>Donate Now</h3>
+                    {currentUserId === null ?
+                        <p>Please log in to make a pledge</p>
+                        :
+                        (<><AuthContext.Provider value={{ user_id: currentUserId }}>
+                            <CreatePledge />
+                        </AuthContext.Provider></>)
+                    }
+                </div>
+                <div>
+                    {project.pledges.length === 0 ? <p>Be the first to contribute</p> : 
+                    (<>
+                    <h4>This project is receiving support</h4>
+                    <ol> {project.pledges.map((pledge, key) => {
+                        return (
+                            <li key={key}>{pledge.amount}AUD from user_id: {pledge.supporter} with {pledge.comment}
+                            </li>
+                        );
+                    })}
+                    </ol>
+                    </>)}
+                </div>
+            </div>
         </div>
     );
 }
