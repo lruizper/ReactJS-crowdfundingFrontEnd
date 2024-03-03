@@ -12,9 +12,9 @@ function CreatePledge() {
         {
             "supporter": authContext.user_id, // need grab this from local storage
             "project": Number(id), // need grab this from current project page
-            "ammount": "",
+            "amount": "",
             "comment": "",
-            "annonymous": "false",
+            "anonymous": "false",
         }
     );
     
@@ -27,15 +27,18 @@ function CreatePledge() {
     };
 
     const handleSubmit = async (event) => {
-        const project = pledge.project;
-        const supporter = pledge.supporter;
+        const project = newPledge.project;
+        const supporter = newPledge.supporter;
         event.preventDefault();
         if (project === null || supporter === null) {
             window.alert("Internal error detecting project or user, please try again later.");
             return;}
-        
-        if (newPledge.ammount === "" || newPledge.comment === "" ) {
+        if (newPledge.amount === "" || newPledge.comment === "" ) {
             window.alert("Please fill in all fields");
+            return;
+        }
+        if (newPledge.amount <= 0) {
+            window.alert("Pledge amount must be greater than 0");
             return;
         }
         try {
@@ -48,13 +51,12 @@ function CreatePledge() {
         }
         ;
     };
-    // console.log(newPledge)
     return (
         <div>
             <form onSubmit={handleSubmit} className="myForm">
                 <div className="myInput">
-                    <label htmlFor="ammount">Ammount to donate: </label>
-                    <input type="number" id="ammount" onChange={handleChange} />
+                    <label htmlFor="amount">Ammount to donate: </label>
+                    <input type="number" id="amount" onChange={handleChange} min="1"/>
                 </div>
                 <div className="myInput">
                     <label htmlFor="comment">Your message: </label>
