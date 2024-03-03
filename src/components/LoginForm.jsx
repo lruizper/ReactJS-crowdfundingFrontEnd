@@ -27,8 +27,10 @@ function LogInForm() {
             postLogin(credentials.username, credentials.password)
                 .then((response) => {
                     window.localStorage.setItem("token", response.token);
-                    setAuth({token: response.token});
-                    // console.log(response.token);
+                    window.localStorage.setItem("user_id", response.user_id);
+                    setAuth({token: response.token,
+                        user_id: response.user_id});
+                    console.log(response);
                     navigate("/");
                 })
                 .catch((error) => {

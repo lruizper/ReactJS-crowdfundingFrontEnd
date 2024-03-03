@@ -11,7 +11,7 @@ async function postPledge(newPledge) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            auth: `Token ${token}`,
+            "Authorization": `Token ${token}`,
         },
         body: JSON.stringify(newPledge),
     });
