@@ -3,46 +3,44 @@ import { useParams } from "react-router-dom";
 import { useState, useContext } from "react";
 
 import useProject from "../hooks/use-project";
-import useUser from "../hooks/use-user";
 import { AuthContext } from "../components/AuthProvider";
 import CreatePledge from "../components/CreatePledge";
 
 function ProjectPage() {
-    const authContext = useContext(AuthContext);
-    const currentUserId = useUser(authContext.user_id);
-    // define user_id from local storage?
+    // define user_id from local storage
+    const currentUserId = JSON.parse(localStorage.getItem("user_id"));
     // define project_id from the current project page
     const { id } = useParams();
+
+    //handle retreiving the project information
     const { project, isLoading, error } = useProject(id);
     if (isLoading) return (<>
         <p>Hang on thight, we're loading your content</p>;
-        </>)
-        
-        if (error) 
+    </>)
+    if (error)
         return (<>
             <p>Something went wrong: {error.message}</p>;
-            </>)
+        </>)
     return (
         <div className="projPage" >
             <h2>{project.title}</h2>
-            {/* <h3>Created at: {project.date_created}</h3> */}
             <div className="projDescript">
-            <img src={project.image} />
-            <div className="projInfo">
-            <p>Target: {project.goal}</p>
-            <p>Created: {new Date(project.date_created).toLocaleDateString()}</p>
-            <p>{project.description}</p>
-            </div>
+                <img src={project.image} />
+                <div className="projInfo">
+                    <p>Target: {project.goal}</p>
+                    <p>Created: {new Date(project.date_created).toLocaleDateString()}</p>
+                    <p>{project.description}</p>
+                </div>
             </div>
             <h3>Pledges:</h3>
 
-            { currentUserId ? 
-                <p>Please log in to make a pledge</p> 
-                : 
+            {currentUserId===null ?
+                <p>Please log in to make a pledge</p>
+                :
                 (<><AuthContext.Provider value={{ user_id: currentUserId }}>
-                    <CreatePledge/>
+                    <CreatePledge />
                 </AuthContext.Provider></>)
-                }
+            }
             <h3>Previous Supporters:</h3>
             {project.pledges.length === 0 ? <p>Be the first to contribute</p> : null}
             <ul> {project.pledges.map((pledge, key) => {
